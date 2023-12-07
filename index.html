@@ -1,0 +1,708 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DR. ABC's Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f3f3f3;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+            .header .name {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+            .nav li {
+                margin-left: 20px;
+            }
+
+            .nav a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+            }
+
+                .nav a:hover {
+                    text-decoration: underline;
+                }
+
+        .content {
+            display: flex;
+            padding: 20px;
+        }
+
+            .content img {
+                max-width: 200px;
+                height: auto;
+                margin-right: 20px;
+            }
+
+        .text-content {
+            background-color: #f5f5dc;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .tab {
+            display: none;
+            padding: 20px;
+        }
+
+            .tab.active {
+                display: block;
+            }
+    </style>
+
+    <style>
+        /* ... existing styles ... */
+
+        .publication-entry {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .publication-img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .publication-content {
+            flex-grow: 1;
+        }
+
+        .read-button {
+            background-color: #35424a;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .read-button:hover {
+                background-color: #e8491d;
+            }
+        /* ... other styles ... */
+    </style>
+
+    <style>
+        .tab .content {
+            display: flex;
+            align-items: center; /* Aligns items vertically in the center */
+            justify-content: space-between; /* Distributes space between the items */
+        }
+
+        .research-image {
+            width: 50%; /* Adjust as necessary */
+            height: auto; /* Keeps the aspect ratio of the image */
+            margin-right: 20px; /* Optional: adds some space between the image and the text */
+        }
+
+        .research-text {
+            width: 100%; /* Adjust as necessary */
+            /* Other styling as needed */
+        }
+    </style>
+
+
+    <style>
+        /* ... other existing styles ... */
+
+        #research .content {
+            display: block; /* Changes layout from flex to block for only the research tab */
+        }
+
+            #research .content img {
+                max-width: 100%; /* Adjust as necessary */
+                height: auto;
+                margin-bottom: 20px; /* Adds some space below the image */
+            }
+
+        #research .research-section {
+            margin-bottom: 20px; /* Adds some space below each section */
+        }
+
+        /* ... other styles ... */
+    </style>
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="name"> DR. SUMANTA RAY</div>
+        <ul class="nav">
+            <li> <a href="#" onclick="showTab('home')"> Home</a> </li>
+            <li> <a href="#" onclick="showTab('research')"> Research</a> </li>
+            <li> <a href="#" onclick="showTab('publication')"> Publication</a> </li>
+            <li> <a href="#" onclick="showTab('team')"> Team</a> </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <img src="mypic.jpg" alt="Profile Image">
+        <div class="text-content">
+            <p>
+                I am currently working as Associate Professor at Department of Computer Science and Engineering,
+                Ghani Khan Choudhury Institute of Engineering \& Technology (A CFTI, under MoE, Govt. of India).
+                Before that I worked as Junior Professor at Universität Bielefeld, Bielefeld, Germany.
+                I also worked as an Assistant Professor at Department of Computer Science and Engineering, Aliah University,
+                Kolkata for 10 years. I worked as a stipend scholar (remotely from India) at Genome Data Science,
+                Universität Bielefeld, Bielefeld, Germany for six months.
+                Before that, I spent one year and two months at Life Science and Health group, Centrum Wiskunde and Informatica,
+                The Netherlands as an ERCIM (the European Research Consortium for Informatics and Mathematics) postdoctoral fellow.
+                I received Ph.D from Jadavpur University while working at Machine Intelligence Unit, Indian Statistical Institute,
+                Kolkata, India, where I spent one year and two months as a Junior Research Fellow. My research interests includes
+                deep learning model in single cell genomics, explanable AI, and big data systems in life sciences and health informatics.
+
+                .
+            </p>
+        </div>
+    </div>
+
+    <div id="home" class="tab active">
+        <h3> Here is my Resume</h3>
+        <p> <a href="mycv.pdf" target="_blank" download="My_CV.pdf"> Download My CV</a> </p>
+    </div>
+
+    <div id="research" class="tab">
+        <h3>Research</h3>
+        <div class="content">
+            <!--<img src="home_image.png" alt="Research Image" class="research-image"> -->
+
+            <p>
+                <h3>Gene selection in single cell data</h3>
+
+                Gene selection in unannotated large single cell RNA sequencing (scRNA-seq) data is important and crucial step in the preliminary step of downstream analysis. The existing approaches are primarily based on high variation (highly variable genes) or significant high expression (highly expressed genes) failed to provide stable and predictive feature set due to technical noise present in the data. We propose <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009464" target="_blank"><strong>RgCop</strong></a>,
+                , and <a href="https://academic.oup.com/bib/advance-article-abstract/doi/10.1093/bib/bbab517/6509050?redirectedFrom=fulltext&login=false" target="_blank"><strong>sc-REnF</strong></a>,
+                for gene selection from large single cell RNA-seq data. RgCop utilizes copula correlation (Ccor), a robust equitable dependence measure that captures multivariate dependency among a set of genes in single cell expression data. We introduce sc-REnF [robust entropy based feature (gene) selection method], aiming to leverage the advantages of Renyi and Tsallis entropies in gene selection for single cell clustering.
+                <img src="rgcop.png" alt="Research Image" class="research-image">
+
+                <h3>Single Cell Clustering</h3>
+
+                A copula based topology preserving graph convolution network for clustering of single-cell RNA-seq data. Here we introduce <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009600" target="_blank"><strong>sc-CGconv</strong></a>, (copula based graph convolution network for single clustering), a stepwise robust unsupervised feature extraction and clustering approach that formulates and aggregates cell–cell relationships using copula correlation (Ccor), followed by a graph convolution network based clustering approach.
+
+                <img src="scgcconv.png" alt="Research Image" class="research-image">
+
+                <h3>In-silico Generation of Single Cell</h3>
+                Here, we present an improved version of generative adversarial network (GAN) called LSH-GAN <a href=https://www.nature.com/articles/s42003-022-03473-y" target="_blank"><strong>LSH-GAN</strong></a>,to address this issue by producing new realistic cell samples.
+
+                <img src="lsh_gan.png" alt="Research Image" class="research-image">
+
+                <h3>Cell Type Detection</h3>
+
+                Multi-Task Learning Approach for Cell Type Detection in Single-Cell RNA. Cell type prediction is one of the most challenging goals in single-cell RNA sequencing (scRNA-seq) data. Existing methods use unsupervised learning to identify signature genes in each cluster, followed by a literature survey to look up those genes for assigning cell types. However, finding potential marker genes in each cluster is cumbersome, which impedes the systematic analysis of single-cell RNA sequencing data. To address this challenge, we proposed a framework based on regularized multi-task learning (RMTL) that enables us to simultaneously learn the subpopulation associated with a particular cell type. We also proposed MarkerCapsule, which leverages the landmark advantages of capsule networks achieved in their original applications in single cell typing.
+
+                <img src="A-B-C-D_panel-final_binded.png" alt="Research Image" class="research-image">
+
+            </p>
+
+
+            
+            </div>
+        </div>
+
+        <div id="publication" class="tab">
+            <h3> Publication</h3>
+            <p>
+                <section id="publications">
+                    <h2> Peer-Reviewed Journal Papers</h2>
+                    <!-- Entry 1 -->
+            <!-- Publication Entry 1 -->
+            <div class="publication-entry">
+                <img src="\logos\cbm.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Systematic mining of patterns of polysubstance use in a nationwide population survey"</strong> <br>
+                        S. Ray*, M. Desai, and S. Pyne, <br>
+                        <strong> Computers in Biology and Medicine</strong>, Volume 151, Part A, December 2022, 106175
+                    </p>
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0010482522008836" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 2 -->
+            <div class="publication-entry">
+                <img src="\logos\aim.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Deep variational graph autoencoders for novel host-directed therapy options against COVID-19"</strong> <br>
+                        S. Ray*, S. Lall, A. Mukhopadhyay, S. Bandyopadhyay, and A. Schönhuth, <br>
+                        <strong> Artificial Intelligence in Medicine</strong>, Volume 134, December 2022, 102418.
+                    </p>
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0933365722001701#!" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 3 -->
+            <div class="publication-entry">
+                <img src="\logos\IEEE_tetci.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A deep integrated framework for predicting SARS-CoV2–Human protein-protein interaction"</strong> <br>
+                        S. Ray*, S. Lall, and S. Bandyopadhyay, <br>
+                        <strong> IEEE Transactions on Emerging Topics in Computational Intelligence</strong>, doi: 10.1109/TETCI.2022.3182354., 2022
+                    </p>
+                    <a href="https://ieeexplore.ieee.org/document/9805994" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 4 -->
+            <div class="publication-entry">
+                <img src="/logos/frontiers.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A regularized multi-task learning approach for cell type detection in single RNA sequencing data"</strong> <br>
+                        P. Upadhyay and S. Ray*, <br>
+                        <strong> Frontiers in Genetics</strong>, 13 April 2022, https://doi.org/10.3389/fgene.2022.788832
+                    </p>
+                    <a href="https://www.frontiersin.org/articles/10.3389/fgene.2022.788832/full" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 5 -->
+            <div class="publication-entry">
+                <img src="/logos/ploscb.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A topology preserving graph convolution network for clustering of single-cell RNA seq data"</strong> <br>
+                        S. Lall, S. Ray*, and S. Bandyopadhyay, <br>
+                        <strong> PLoS Computational Biology</strong>, 18(3): e1009600. https://doi.org/10.1371/journal.pcbi.1009600, 2022.
+                    </p>
+                    <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009600" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 6 -->
+            <div class="publication-entry">
+                <img src="/logos/cmmsbio.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "LSH-GAN enables in-silico generation of cells for small sample high dimensional scRNA-seq data."</strong> <br>
+                        S. Lall, S. Ray*, S. Bandyopadhyay, <br>
+                        <strong> Nat. Communication Biology</strong>, 577 (2022). https://doi.org/10.1038/s42003-022-03473-y.
+                    </p>
+                    <a href="https://www.nature.com/articles/s42003-022-03473-y" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 7 -->
+            <div class="publication-entry">
+                <img src="/logos/bib.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "sc-REnF: An entropy guided robust feature selection for clustering of single-cell rna-seq data"</strong> <br>
+                        S. Lall, A. Ghosh, S. Ray*, S. Bandyopadhyay, <br>
+                        <strong> Briefings in Bioinformatics</strong>, bbab517, https://doi.org/10.1093/bib/bbab517, 2022.
+                    </p>
+                    <a href="https://academic.oup.com/bib/advance-article-abstract/doi/10.1093/bib/bbab517/6509050?redirectedFrom=fulltext&login=false" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 8 -->
+            <div class="publication-entry">
+                <img src="/logos/screports.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Pan-cancer classification by regularized multi-task learning."</strong> <br>
+                        SMM Hossain, L. Khatun, S. Ray*, and A. Mukhopadhyay, <br>
+                        <strong> Scientific Reports</strong>, 11, 24252 (2021).
+                    </p>
+                    <a href="https://www.nature.com/articles/s41598-021-03554-8" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 9 -->
+            <div class="publication-entry">
+                <img src="/logos/ploscb.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "RgCop-A regularized copula based method for gene selection in single cell rna-seq data"</strong> <br>
+                        S. Lall, S. Ray*, S. Bandyopadhyay, <br>
+                        <strong> PLoS Computational Biology</strong>, 17(10): e1009464. https://doi.org/10.1371/journal.pcbi.1009464, 2021.
+                    </p>
+                    <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009464" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 10 -->
+            <div class="publication-entry">
+                <img src="/logos/gene.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Identification of key immune regulatory genes in HIV-1 progression"</strong> <br>
+                        SM. Hossain, L. Khatun, S. Ray*, A. Mukhopadhyay <br>
+                        <strong> Gene</strong>, Volume 792, 5 August 2021, 145735
+                    </p>
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378111921003292" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 11 -->
+            <div class="publication-entry">
+                <img src="/logos/jbsc.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Differential Patterns of Social Media Use Associated with Loneliness and Health Outcomes in Selected Socioeconomic Groups"</strong> <br>
+                        P. Gharani, S. Ray, M. Aruru, and S. Pyne<br>
+                        <strong> J. Technol. Behav. Sci.</strong>, 2021
+                    </p>
+                    <a href="https://link.springer.com/article/10.1007/s41347-021-00208-4" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 12 -->
+            <div class="publication-entry">
+                <img src="/logos/screports.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Discovering Key Transcriptomic Regulators in Pancreatic Ductal Adenocarcinoma using Dirichlet Process Gaussian Mixture Mode"</strong> <br>
+                        M. Hossain, AA. Halsana, L. Khatun, S. Ray*, and A. Mukhopadhyay<br>
+                        <strong> Scientific Reports</strong>, 7853 (2021)
+                    </p>
+                    <a href="https://www.biorxiv.org/content/10.1101/2020.10.01.322768v1" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 13 -->
+            <div class="publication-entry">
+                <img src="/logos/plosone.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "DTI-SNNFRA: Drug-target interaction prediction by shared nearest neighbors and fuzzy-rough approximation"</strong> <br>
+                        M. Islam, M. Hossain, and S. Ray*<br>
+                        <strong> PLoS ONE</strong>, February 19, 2021
+                    </p>
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0246920" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 14 -->
+            <div class="publication-entry">
+                <img src="/logos/sankhya.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Clustering patterns connecting COVID-19 dynamics and Human mobility using optimal transport"</strong> <br>
+                        F. Nielsen, G. Marti, S. Ray, and S. Pyne<br>
+                        <strong> Sankhya B</strong>, February, 2021
+                    </p>
+                    <a href="https://link.springer.com/article/10.1007/s13571-021-00255-0" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 15 -->
+            <div class="publication-entry">
+                <img src="/logos/npj.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "CODC: A copula based model to identify differential coexpression"</strong> <br>
+                        S. Ray, S.Lall, and S.Bandyopadhyay<br>
+                        <strong> npj System Biology and Applications</strong>, 6, 2020
+                    </p>
+                    <a href="https://www.nature.com/articles/s41540-020-0137-9" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 16 -->
+            <div class="publication-entry">
+                <img src="/logos/stats_application.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Transition from Social Vulnerability to Resiliency vis-à-vis COVID-19"</strong> <br>
+                        S. Pyne, S. Ray, R. Gurewitsch, M. Aruru<br>
+                        <strong> Statistics and Applications</strong>, Vol.18, pp-197-208, 2020
+                    </p>
+                    <a href="https://www.ssca.org.in/media/11_18_1_2_SA_Pyne_IOjLhKt.pdf" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 17 -->
+            <div class="publication-entry">
+                <img src="/logos/tcbb.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Colored Network Motif Analysis by Dynamic Programming Approach: An Application in Host-Pathogen Interaction Network"</strong> <br>
+                        S.Biswas, S. Ray*, and S.Bandyopadhyay<br>
+                        <strong> IEEE/ACM Transactions on Computational Biology and Bioinformatics</strong>, 2019
+                    </p>
+                    <a href="https://ieeexplore.ieee.org/document/8737727" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 18 -->
+            <div class="publication-entry">
+                <img src="/logos/tnb.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Computational prediction of HCVhuman protein-protein interaction via topological analysis of HCV infected PPI module"</strong> <br>
+                        S. Ray, A. Alberuni, and U.Maulik<br>
+                        <strong> IEEE Transaction on Nanobioscience</strong>, 17:55-61, 2018
+                    </p>
+                    <a href="https://ieeexplore.ieee.org/document/8268541/" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 19 -->
+            <div class="publication-entry">
+                <img src="/logos/bib_genomics.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A Review of Computational Approaches for Analysis of Hepatitis C Virus (HCV)-mediated Liver Diseases"</strong> <br>
+                        S. Ray, A.Mukhopdhyay, and U. Maulik<br>
+                        <strong> Briefings in Functional Genomics</strong>, 2017
+                    </p>
+                    <a href="https://academic.oup.com/bfg/advance-article-abstract/doi/10.1093/bfgp/elx040/4675067?redirectedFrom=fulltext" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 20 -->
+            <div class="publication-entry">
+                <img src="/logos/bmcbio.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A Comprehensive Analysis on Preservation Patterns of Gene Co-Expression Networks during Alzheimer’s Disease Progression"</strong> <br>
+                        SM. Hossain, S. Ray*, and A. Mukhopadhyay<br>
+                        <strong> BMC Bioinformatics</strong>, 2017
+                    </p>
+                    <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1946-8" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 21 -->
+            <div class="publication-entry">
+                <img src="/logos/screports.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Identifying protein complexes in PPI network using non-cooperative sequential game"</strong> <br>
+                        U. Maulik, S. Basu, and S. Ray*<br>
+                        <strong> Scientific Reports</strong>, 7:8410, 2017
+                    </p>
+                    <a href="https://www.nature.com/articles/s41598-017-08760-x" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 22 -->
+            <div class="publication-entry">
+                <img src="/logos/bmcbio.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Preservation affinity in consensus modules among stages of HIV-1 Progression"</strong> <br>
+                        M. Hossain and S. Ray*, and A. Mukhopadhyay<br>
+                        <strong> BMC Bioinformatics</strong>, 2017
+                    </p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5359929/" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 23 -->
+            <div class="publication-entry">
+                <img src="/logos/screports.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Identifying differentially coexpressed module during HIV disease progression: A multiobjective approach"</strong> <br>
+                        S.Ray and U. Maulik<br>
+                        <strong> Scientific Reports</strong>, 2017
+                    </p>
+                    <a href="https://www.nature.com/articles/s41598-017-00090-2" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 24 -->
+            <div class="publication-entry">
+                <img src="/logos/tcbb.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Discovering perturbation of modular structure in HIV progression by integrating multiple data sources through non-negative matrix factorization"</strong> <br>
+                        S. Ray and U. Maulik<br>
+                        <strong> IEEE/ACM Transactions on Computational Biology and Bioinformatics</strong>, 13:6:1086-1099, 2016
+                    </p>
+                    <a href="https://ieeexplore.ieee.org/document/7792127/" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 25 -->
+            <div class="publication-entry">
+                <img src="/logos/bmcbio.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A NMF based approach for integrating multiple data sources to predict HIV-1-human PPIs"</strong> <br>
+                        S. Ray and S. Bandyopadhyay<br>
+                        <strong> BMC Bioinformatics</strong>, 2016
+                    </p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4784399/" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 26 -->
+            <div class="publication-entry">
+                <img src="/logos/tcbb.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Discovering condition specific topological pattern changes in coexpression network: an application to HIV-1 progression"</strong> <br>
+                        S. Ray and S. Bandyopadhyay<br>
+                        <strong> IEEE/ACM Transactions on Computational Biology and Bioinformatics</strong>, 13:1086 - 1099, 2016
+                    </p>
+                    <a href="https://ieeexplore.ieee.org/document/7346446/" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 27 -->
+            <div class="publication-entry">
+                <img src="/logos/amb.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A Multiobjective Approach for Identifying Protein Complexes and Studying their Association in Multiple Disorders"</strong> <br>
+                        S. Bandyopadhyay, S. Ray, A. Mukhopadhyay and U. Maulik<br>
+                        <strong> Algorithms for Molecular Biology</strong>, 2015
+                    </p>
+                    <a href="https://almob.biomedcentral.com/articles/10.1186/s13015-015-0056-2" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 28 -->
+            <div class="publication-entry">
+                <img src="/logos/bib.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "A Review of In Silico Approaches for Analysis and Prediction of HIV-1-Human Protein-Protein Interactions"</strong> <br>
+                        S. Bandyopadhyay, S. Ray, A. Mukhopadhyay and U. Maulik<br>
+                        <strong> Briefings in Bioinformatics</strong>, 16:5: 830-851, 2015
+                    </p>
+                    <a href="https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbu041" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 29 -->
+            <div class="publication-entry">
+                <img src="/logos/bmcbio.jpg" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Incorporating the type and direction information in predicting novel regulatory interactions between HIV-1 and human proteins using a biclustering approach"</strong> <br>
+                        A. Mukhopadhyay, S. Ray, and U. Maulik<br>
+                        <strong> BMC Bioinformatics</strong>, 15:26, 2014
+                    </p>
+                    <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-15-26" class="read-button"> Read</a>
+                </div>
+            </div>
+            <!-- Publication Entry 30 -->
+            <div class="publication-entry">
+                <img src="/logos/mbsys.png" alt="Journal Image" class="publication-img">
+                <div class="publication-content">
+                    <p>
+                        <strong> "Detecting Protein Complexes in PPI Network: A Gene Ontology-based Multiobjective Evolutionary Approach"</strong> <br>
+                        A. Mukhopadhyay, S. Ray, and M. De<br>
+                        <strong> Molecular BioSystems</strong>, 8:3036-3048, 2013
+                    </p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/22990765" class="read-button"> Read</a>
+                </div>
+            </div>
+
+
+
+            <section id="conferences">
+                <h2> Selected Conference Proceedings</h2>
+                <!-- Entry 1 -->
+                <div class="publication-entry">
+                    <img src="\logos\ismb21.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong> "Deep variational graph autoencoders for novel host-directed therapy options against COVID-19"</strong> <br>
+                            S. Ray, S Lall, A Mukhopadhyay, S Bandyopadhyay and A Schönuth, <br>
+                            29th Conference on Intelligent Systems in Molecular Biology ISMB/ECCB 2021, COVID-19 special track.
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+                <!-- Entry 2 -->
+                <div class="publication-entry">
+                    <img src="\logos\ismb20.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong> "Identifying novel SARS-CoV2–human protein interactions using graph embedding"</strong> <br>
+                            S. Lall, S. Ray and S. Bandyopadhyay, <br>
+                            28th Conference on Intelligent Systems in Molecular Biology (ISMB-2020), COVID-19 special track, 2020.
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+
+                <div class="publication-entry">
+                    <img src="\logos\apha.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong>
+                                "A computational framework for identifying patterns of association and transition
+                                in addictive substances use over five decades in the US"
+                            </strong> <br>
+                            M. Aruru, S. Pyne, and S. Ray, <br>
+                            APHA’s (American Public Health Association) Annual Meeting and Expo, 2021.
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+
+
+                <div class="publication-entry">
+                    <img src="\logos\ieee.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong>
+                                "Detecting hub genes and key modules
+                                in stomach adenocarcinoma using nsNMF based data integration technique"
+                            </strong> <br>
+                            SM. Hossain, A. Mukhopadhyay and S. Ray, <br>
+                            IEEE 18th International Conference on Information Technology, 2019.
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+
+                <div class="publication-entry">
+                    <img src="\logos\premi.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong>
+                                "Topological Inquisition into the PPI Networks Associated
+                                with Human Diseases Through Graphlet Frequency Distribution"
+                            </strong> <br>
+                            SD. Bhattacharjee, SM. Hossain, R. Sultana and S. Ray, <br>
+                            Pattern Recognition and Machine Intelligence. PReMI 2017,
+                            volume 10597:431-437, 2017
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+
+
+                <div class="publication-entry">
+                    <img src="\logos\fuzz.png" alt="Conference Image" class="publication-img">
+                    <div class="publication-content">
+                        <p>
+                            <strong>
+                                "Incorporating Fuzzy Semantic Similarity Measure in Detecting Human Protein Complexes in PPI Network"
+                            </strong> <br>
+                            S. Ray, S. Bandyopadhyay, A. Mukhopadhyay, U. Maulik, <br>
+                            IEEE International Conference on Fuzzy Systems
+                            (FUZZ-IEEE), DOI: 10.1109/FUZZ-IEEE.2013.6622483, 2013.
+                        </p>
+                        <!-- Add link to the conference paper or proceedings if available -->
+                    </div>
+                </div>
+
+
+
+            </section>
+            <!-- Continue in this format for additional entries -->
+            <!-- Continue this format for other entries -->
+            </p>
+        </div>
+    <div id="team" class="tab">
+        <h3> Team</h3>
+        <p> Content for Team.</p>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            var tabs = document.getElementsByClassName('tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+                tabs[i].style.display = 'none';
+            }
+
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById(tabId).style.display = 'block';
+        }
+    </script>
+</body>
+        </html >
